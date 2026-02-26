@@ -29,7 +29,6 @@
           <span></span><span></span><span></span>
         </button>
         <nav class="nav" id="mainNav">
-          <a href="#start">Start</a>
           <a href="#om-oss">Om oss</a>
           <a href="#projekt">Projekt</a>
           <a href="#process">Process</a>
@@ -80,33 +79,43 @@
             <h2>Utvalda badrumsprojekt</h2>
           </div>
           <div class="project-grid">
-            <a href="#" class="project-card reveal scale-in">
+            <a href="#" class="project-card reveal scale-in" data-project="solna">
               <img src="badrum1.jpg" alt="Badrum i Solna" />
               <span class="project-overlay"><strong>Badrum i Solna</strong><em>Se projekt →</em></span>
             </a>
-            <a href="#" class="project-card reveal scale-in">
+            <a href="#" class="project-card reveal scale-in" data-project="nacka">
               <img src="badrum2.jpg" alt="Badrum i Nacka" />
               <span class="project-overlay"><strong>Badrum i Nacka</strong><em>Se projekt →</em></span>
             </a>
-            <a href="#" class="project-card reveal scale-in">
+            <a href="#" class="project-card reveal scale-in" data-project="taby">
               <img src="badrum3.jpg" alt="Badrum i Täby" />
               <span class="project-overlay"><strong>Badrum i Täby</strong><em>Se projekt →</em></span>
             </a>
-            <a href="#" class="project-card reveal scale-in">
+            <a href="#" class="project-card reveal scale-in" data-project="bromma">
               <img src="badrum4.jpg" alt="Badrum i Bromma" />
               <span class="project-overlay"><strong>Badrum i Bromma</strong><em>Se projekt →</em></span>
             </a>
-            <a href="#" class="project-card reveal scale-in">
+            <a href="#" class="project-card reveal scale-in" data-project="sundbyberg">
               <img src="badrum6.jpg" alt="Badrum i Sundbyberg" />
               <span class="project-overlay"><strong>Badrum i Sundbyberg</strong><em>Se projekt →</em></span>
             </a>
-            <a href="#" class="project-card reveal scale-in">
+            <a href="#" class="project-card reveal scale-in" data-project="lidingo">
               <img src="badrum7.jpg" alt="Badrum i Lidingö" />
               <span class="project-overlay"><strong>Badrum i Lidingö</strong><em>Se projekt →</em></span>
             </a>
           </div>
         </div>
       </section>
+
+      <div class="project-modal" id="projectModal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="project-modal__backdrop" data-close-modal="true"></div>
+        <article class="project-modal__card">
+          <button type="button" class="project-modal__close" id="projectModalClose" aria-label="Stäng popup">×</button>
+          <p class="eyebrow">Projektinfo</p>
+          <h3 id="projectModalTitle">Projekt</h3>
+          <p id="projectModalText"></p>
+        </article>
+      </div>
 
       <section id="process" class="section process">
         <div class="container">
@@ -185,7 +194,7 @@
       <div class="container footer__grid">
         <div>
           <h3>Badrumslyftet</h3>
-          <p>Telefon: 08-123 45 67</p>
+          <p>Telefon: <a href="tel:0738077937">073 807 79 37</a></p>
           <p>Email: kontakt@badrumslyftet.se</p>
           <p>Ort: Stockholm</p>
         </div>
