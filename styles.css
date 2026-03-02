@@ -23,11 +23,6 @@ body {
   line-height: 1.6;
 }
 
-body.page-leave {
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
 img {
   width: 100%;
   display: block;
@@ -85,12 +80,7 @@ p {
   left: 0;
   right: 0;
   z-index: 1000;
-  transform: translateY(0);
-  transition: background 0.24s ease, box-shadow 0.24s ease, backdrop-filter 0.24s ease, transform 0.3s ease;
-}
-
-.site-header.is-hidden {
-  transform: translateY(-110%);
+  transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
 }
 
 .header.scrolled {
@@ -242,25 +232,12 @@ h1 {
   gap: 1rem;
 }
 
-.service-card-link {
-  text-decoration: none;
-  color: inherit;
-}
-
 .trust-card {
   background: var(--white);
   border-radius: var(--radius);
   padding: 2rem;
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
-  opacity: 0;
-  transform: translateX(40px);
-  transition: transform 0.6s ease-out, opacity 0.6s ease-out, box-shadow 0.25s ease, border-color 0.25s ease;
-  transition-delay: var(--stagger-delay, 0ms);
-}
-
-.trust-card.is-visible {
-  opacity: 1;
-  transform: translateX(0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .trust-card:hover {
@@ -294,34 +271,12 @@ h1 {
   border-radius: var(--radius);
   overflow: hidden;
   min-height: 270px;
-  perspective: 1000px;
-}
-
-.project-card-inner,
-.project-front,
-.project-back {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.project-card-inner {
-  position: relative;
-  transition: transform 0.5s ease;
-  transform-style: preserve-3d;
-}
-
-.project-front,
-.project-back {
-  position: absolute;
-  inset: 0;
-  backface-visibility: hidden;
 }
 
 .project-card img {
   height: 100%;
   object-fit: cover;
-  transition: transform 0.65s ease;
+  transition: transform 0.35s ease;
 }
 
 .project-overlay {
@@ -339,27 +294,6 @@ h1 {
 
 .project-card:hover img {
   transform: scale(1.05);
-}
-
-.project-item:hover .project-card-inner,
-.project-item:focus-visible .project-card-inner {
-  transform: rotateY(180deg);
-}
-
-
-.project-item.reveal-side-desktop {
-  transform: translateX(calc(var(--slide-direction, 1) * var(--project-max-offset, 720px) * var(--project-shift, 1)));
-  transition: transform 0.14s linear;
-}
-.project-back {
-  transform: rotateY(180deg);
-  background: #1c1c1c;
-  color: #fff;
-  padding: 1.4rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 0.5rem;
 }
 
 .project-card:hover .project-overlay {
@@ -434,9 +368,6 @@ h1 {
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   position: relative;
-  list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
 .timeline::before {
@@ -452,12 +383,9 @@ h1 {
 .step {
   text-align: center;
   position: relative;
-  opacity: 0.55;
-  transform: scale(0.98);
-  transition: opacity 220ms ease, color 220ms ease, transform 220ms ease;
 }
 
-.step-num {
+.step span {
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -466,51 +394,12 @@ h1 {
   margin: 0 auto 1rem;
   font-weight: 700;
   background: var(--accent);
-  border: 1px solid transparent;
-  transition: color 220ms ease, border-color 220ms ease, background-color 220ms ease;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-.step.is-done {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.step.is-done .step-num {
+.step.in-view span {
   background: var(--primary);
   color: var(--white);
-}
-
-.process-wrap {
-  --progress: 0%;
-}
-
-.process-rail {
-  position: relative;
-  margin-bottom: 1rem;
-  height: 4px;
-}
-
-.rail-line,
-.rail-progress {
-  position: absolute;
-  left: 12%;
-  right: 12%;
-  top: 0;
-  height: 100%;
-  border-radius: 999px;
-}
-
-.rail-line {
-  background: #ddd7cf;
-}
-
-.rail-progress {
-  right: auto;
-  width: 76%;
-  transform-origin: left;
-  transform: scaleX(calc(var(--progress) / 100));
-  background: var(--primary);
-  transition: transform 180ms ease;
 }
 
 .about {
@@ -528,19 +417,6 @@ h1 {
   border-radius: var(--radius);
   min-height: 380px;
   object-fit: cover;
-}
-
-.about__image {
-  overflow: hidden;
-  border-radius: var(--radius);
-}
-
-.about__image img {
-  transition: transform 0.65s ease;
-}
-
-.about__image:hover img {
-  transform: scale(1.05);
 }
 
 .cta {
@@ -566,47 +442,6 @@ h1 {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
-}
-
-.stats-section {
-  background: var(--muted);
-}
-
-.stat-card,
-.review-card {
-  background: #fff;
-  border-radius: var(--radius);
-  padding: 1.2rem;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
-}
-
-.counter {
-  font-size: 2rem;
-  font-weight: 800;
-  margin: 0;
-}
-
-.reviews-viewport {
-  overflow: hidden;
-}
-
-.reviews-track {
-  display: flex;
-  gap: 1rem;
-  width: max-content;
-  animation: reviews-marquee 32s linear infinite;
-  will-change: transform;
-}
-
-.reviews-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(240px, 1fr));
-  gap: 1rem;
-}
-
-.reviews-viewport:hover .reviews-track,
-.reviews-viewport:focus-within .reviews-track {
-  animation-play-state: paused;
 }
 
 .contact-form label {
@@ -689,14 +524,13 @@ h1 {
 
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
-.reveal.show,
 .reveal.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
 .slide-left {
@@ -759,44 +593,6 @@ h1 {
   }
 }
 
-@keyframes reviews-marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(calc(-50% - 0.5rem));
-  }
-}
-
-@media (max-width: 720px) {
-  .service-card {
-    transform: translateX(24px);
-    transition-duration: 0.5s;
-  }
-
-  .service-card-link:nth-child(2) .service-card {
-    transition-delay: 0.08s;
-  }
-
-  .service-card-link:nth-child(3) .service-card {
-    transition-delay: 0.16s;
-  }
-}
-
-@media (min-width: 769px) {
-  .project-item.reveal-side-desktop {
-    will-change: transform;
-  }
-}
-
-@media (hover: none) {
-  .project-card-inner,
-  .project-item:hover .project-card-inner,
-  .project-item:focus-visible .project-card-inner {
-    transform: none !important;
-  }
-}
-
 @media (max-width: 900px) {
   .project-grid,
   .trust__grid,
@@ -848,35 +644,5 @@ h1 {
 
   .contact-form {
     grid-template-columns: 1fr;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  .reviews-track {
-    animation: none;
-    transform: translateX(0);
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-
-  .rail-progress,
-  .service-card,
-  .project-item.reveal-side-desktop,
-  .step,
-  .step.is-pending,
-  .step.is-done {
-    transition: none !important;
-    transform: none !important;
-    opacity: 1 !important;
   }
 }
